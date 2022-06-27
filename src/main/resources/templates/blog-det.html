@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog12</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="block/header :: header"></header>
+<div class = "container mt-5">
+    <div th:each="el : ${post}" class="alert alert-info mt-2">
+        <h3 th:text="${el.title}"/>
+        <p th:text="${el.full_text}"/>
+        <p><b>Views</b><span th:text="${el.views}"/ ></p>
+        <a th:href="'/blog/'+${el.id}+'/edit'" class="btn btn-waning">Red</a>
+        <form th:action="'/blog/'+${el.id}+'/remove'" method="post">
+            <button class="btn btn-waning" type="submit">DEllETE</button>
+        </form>
+    </div>
+</div>
+<footer th:insert="block/footer :: footer"></footer>
+<p th:text="'Hello, ' + ${title} + '!'" />
+</body>
+</html>

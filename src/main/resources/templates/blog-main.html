@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog12</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <header th:insert="block/header :: header"></header>
+    <div class = "container mt-5">
+        <h1>Blog Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur autem dignissimos, distinctio ea excepturi expedita ipsum nobis odit repellendus, sit veritatis voluptatibus! Alias asperiores maxime molestiae pariatur reiciendis.</h1>
+        <div th:each="el : ${posts}" class="alert alert-info mt-2">
+            <h3 th:text="${el.title}"/>
+            <p th:text="${el.anonce}"/>
+            <a th:href="'/blog/'+${el.id}" class="btn btn-waning">Details</a>
+        </div>
+    </div>
+    <footer th:insert="block/footer :: footer"></footer>
+<p th:text="'Hello, ' + ${title} + '!'" />
+</body>
+</html>
